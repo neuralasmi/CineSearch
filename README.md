@@ -1,5 +1,12 @@
 # CineSearch — AI Content Discovery Engine
 
+![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
+![LangChain](https://img.shields.io/badge/LangChain-0.1%2B-green)
+![FAISS](https://img.shields.io/badge/FAISS-Index-orange)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.104%2B-red)
+![Ollama](https://img.shields.io/badge/Ollama-Llama3-purple)
+![Docker](https://img.shields.io/badge/Docker-Compose-blue)
+
 Semantic search and Q&A across a movie/series catalog using Retrieval-Augmented Generation (RAG).
 
 ## What It Does
@@ -12,9 +19,11 @@ Semantic search and Q&A across a movie/series catalog using Retrieval-Augmented 
 - Docker Compose: one command local setup
 
 ## Architecture
+```
 [Ingester] -> [Chunker] -> [Embedder] -> [FAISS Index]
-                                           |
+                                          |
 [User Query] -> [Retriever] -> [Grounded Generator] -> [Streaming Response]
+```
 
 ## Tech Stack
 Python | LangChain | FAISS | sentence-transformers | Ollama (Llama3) | FastAPI | Docker
@@ -28,6 +37,6 @@ docker-compose up --build
 ```
 
 ## API Endpoints
-- POST /ingest -- Ingest documents into the vector store
-- POST /query -- Ask a question, get a streaming RAG response  
-- GET /health -- Health check
+- `POST /ingest` — Ingest documents into the vector store
+- `POST /query` — Ask a question, get a streaming RAG response
+- `GET /health` — Health check
